@@ -7,6 +7,9 @@ const router = express.Router();
 // Get Todos
 router.get('/:todoId', isAuth, getTodo);
 
+// Get Todos by UserId
+router.get('/user/:userId', isAuth, getTodos);
+
 // Get Todo
 router.get('/', isAuth, getTodos);
 

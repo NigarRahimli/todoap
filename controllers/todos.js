@@ -8,6 +8,19 @@ exports.getTodos = (req, res, next) => {
     .catch((err) => console.log(err));
 };
 
+exports.getTodos = (req, res, next) => {
+  const userId = req.params.userId; 
+  Todo.findAll({
+    where: {
+      userId: userId,
+    }
+  })
+    .then((todos) => {
+      res.status(200).json({ todos: todos });
+    })
+    .catch((err) => console.log(err));
+};
+
 exports.getTodo = (req, res, next) => {
   const todoId = req.params.todoId;
   Todo.findByPk(todoId)

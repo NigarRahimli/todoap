@@ -2,6 +2,9 @@ const express = require('express');
 const bodyparser = require('body-parser');
 const sequelize = require('./util/database');
 const User = require('./models/user');
+const cors = require('cors');
+
+
 
 
 const app = express();
@@ -15,6 +18,7 @@ app.use((req, res, next) => {
   next();
 });
 
+app.use(cors());
 //test route
 app.get('/', (req, res, next) => {
     res.send('Hello World');
