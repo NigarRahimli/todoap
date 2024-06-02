@@ -1,14 +1,12 @@
-const controller = require("../controllers/users");
-const router = require("express").Router();
+const express = require('express');
+const { register, login } = require('../controllers/users');
 
-// CRUD Routes /users
-// router.get('/', controller.getUsers); // /users
-// router.get('/:userId', controller.getUser); // /users/:userId
-// router.post('/', controller.createUser); // /users
-// router.put('/:userId', controller.updateUser); // /users/:userId
-// router.delete('/:userId', controller.deleteUser); // /users/:userId
+const router = express.Router();
 
-router.post("/register", controller.register);
-router.post("/login", controller.login);
+// Register Route
+router.post('/register', register);
+
+// Login Route
+router.post('/login', login);
 
 module.exports = router;

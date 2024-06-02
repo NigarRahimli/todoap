@@ -3,6 +3,7 @@ const bodyparser = require('body-parser');
 const sequelize = require('./util/database');
 const User = require('./models/user');
 
+
 const app = express();
 
 app.use(bodyparser.json());
@@ -22,6 +23,8 @@ app.get('/', (req, res, next) => {
   //CRUD routes
   app.use('/users', require('./routes/users'));
   app.use('/todos', require('./routes/todos'));
+
+ 
     
   //error handling
   app.use((error, req, res, next) => {
